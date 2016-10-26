@@ -20,5 +20,10 @@ gem 'paranoia', '~> 2.2'
 
 run_bundle
 
+
+# paranoia
+copy_file 'paranoia_examples.rb',
+          'spec/support/shared_examples/paranoia_examples.rb'
+
 git add: "."
 git commit: %Q{ -m 'common:db' }

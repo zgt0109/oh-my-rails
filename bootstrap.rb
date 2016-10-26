@@ -12,11 +12,11 @@ after_bundle do
 
   puts "common template processing..."
   apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
+  apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
   apply  File.expand_path("../lib/common/app.rb", __FILE__)
   apply  File.expand_path("../lib/common/i18n.rb", __FILE__)
   apply  File.expand_path("../lib/common/db.rb", __FILE__)
-  apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
-
+  
   if options[:api]
     puts "api template processing..."
   else

@@ -22,10 +22,20 @@
   vagrant up
 
 ### Misc
-Paranoia
 
-  rails generate migration AddDeletedAtToClients deleted_at:datetime:index
-  acts_as_paranoid
+**Paranoia**
+
+useage
+
+    rails generate migration AddDeletedAtToClients deleted_at:datetime:index
+
+model
+
+    acts_as_paranoid
+
+rspec
+
+    it_behaves_like 'a Paranoid model'
 
 
 I18n
