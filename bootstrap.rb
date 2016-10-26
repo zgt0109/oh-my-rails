@@ -25,5 +25,4 @@ after_bundle do
     apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
     apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
   end
-  copy_file '.env.example', '.env'
 end
