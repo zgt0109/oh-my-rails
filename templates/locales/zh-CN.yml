@@ -1,0 +1,5 @@
+zh-CN:
+  hello: "欢迎使用 Rails 程序"
+  activerecord:
+    models:
+    attributes:
