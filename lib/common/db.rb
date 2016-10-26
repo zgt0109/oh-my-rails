@@ -8,7 +8,7 @@ if options[:database] == 'postgresql'
   end
 end
 
-append_to_file '.env' do
+append_to_file '.env.example' do
   <<-EOS.strip_heredoc
     export #{app_name.upcase}_DATABASE_HOST=127.0.0.1
     export #{app_name.upcase}_DATABASE_PASSWORD=

@@ -8,7 +8,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 # https://www.brightbox.com/docs/ruby/ubuntu/
 apt-get update
-apt-get install software-properties-common
+apt-get install -yq software-properties-common
 apt-add-repository ppa:brightbox/ruby-ng
 
 apt-get update && apt-get install -y  --no-install-recommends \
@@ -30,3 +30,8 @@ echo 'gem: --no-document' | tee -a ~/.gemrc
 # bundler
 gem install bundler
 bundle config mirror.${GEM_SOURCES_ORIGIN%/} ${GEM_SOURCES_CHINA%/}
+
+# nginx
+sed  -i 's/#\s\+\(server_names_hash_bucket_size\)/\1/' /etc/nginx/nginx.conf
+
+echo -e "\e[31;43;1m All Done. Have a nice day!   \e[0m "

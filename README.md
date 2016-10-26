@@ -11,7 +11,7 @@
 
 **安装 Ruby**
 
-	curl -fsSL https://raw.githubusercontent.com/guxiaobai/oh-my-rails/master/bin/server.sh | bash
+	source <(curl -fsSL https://raw.githubusercontent.com/guxiaobai/oh-my-rails/master/bin/provision.sh)
 
 **新增部署用户**
 

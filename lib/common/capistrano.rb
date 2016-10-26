@@ -11,12 +11,11 @@ run "cap install"
 
 #　capistrano
 uncomment_lines 'Capfile', /require.*bundle/
-uncomment_lines 'Capfile', /require.*assets/ unless options[:api]
 uncomment_lines 'Capfile', /require.*migrations/
 
 uncomment_lines 'config/deploy.rb', /ask\s+:branch/
 uncomment_lines 'config/deploy.rb', /append\s:linked_dirs/
-gsub_file 'config/deploy.rb', /(set\s+:repo_url,).*/, "\\1, '#{ask('repository:')}'"
+gsub_file 'config/deploy.rb', /(set\s+:repo_url,).*/, "\\1 '#{ask('repository:')}'"
 gsub_file 'config/deploy.rb', /(set\s+:application,).*/, "\\1 '#{app_name}'"
 gsub_file 'config/deploy.rb', /(#\s+)(set\s+:deploy_to,).*/, '\2 "/var/www/#{fetch(:application)}"'
 

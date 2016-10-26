@@ -20,7 +20,7 @@ generate "annotate:install"
 create_file 'db/seeds/development/.keep'
 
 # dotenv
-copy_file 'environment', '.env'
+copy_file 'environment', '.env.example'
 append_to_file '.gitignore' do
   <<-EOS.strip_heredoc
 

@@ -20,8 +20,11 @@ read -p "Application Name? " app_name
 
 
 # user
-useradd -m -G sudo,adm -s /bin/bash $user_name
-echo "${user_name} ALL=NOPASSWD:ALL" >> /etc/sudoers
+CHECK_USER=$(grep $user_name /etc/passwd | wc -l)
+
+if [ ! $CHECK_USER -ge 1 ]; then
+  useradd -m -G sudo,adm -s /bin/bash $user_name
+  echo "${user_name} ALL=NOPASSWD:ALL" >> /etc/sudoers
 su - $user_name  <<EOF
 # bundler
 bundle config mirror.${GEM_SOURCES_ORIGIN%/} ${GEM_SOURCES_CHINA%/}
@@ -33,9 +36,10 @@ sed  -i "1i # Rails Applicaton Configure\n" ~/.bashrc
 sed  -i "1a export RAILS_ENV=production" ~/.bashrc
 sed  -i "1a export SECRET_KEY_BASE=${secret_key}" ~/.bashrc
 EOF
-
+fi
 # app
 app_path=/var/www/$app_name
+if [ ! -d $app_path ]; then
 mkdir -p $app_path
 chown -R $user_name:$user_name $app_path
 
@@ -44,5 +48,6 @@ su - postgres <<EOF
 createuser  ${app_name} -P
 createdb -O ${app_name} ${app_name}_production -E UTF8 -e
 EOF
+fi
 
 echo -e "\e[31;43;1m All Done. Have a nice day!   \e[0m "
