@@ -3,7 +3,7 @@ if options[:database] == 'postgresql'
   insert_into_file 'config/database.yml', :after => 'encoding: unicode' do
     <<-EOS.strip_heredoc.indent(2)
 
-    host: <%= ENV['#{app_name.upcase}_DB_HOST'] %>
+    host: <%= ENV['#{app_name.upcase}_DATABASE_HOST'] %>
     EOS
   end
 end
