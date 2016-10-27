@@ -15,15 +15,28 @@ append_to_file '.env.example' do
   EOS
 end
 
-
 gem 'paranoia', '~> 2.2'
+gem 'enumerize', '~> 2.0'
 
 run_bundle
-
 
 # paranoia
 copy_file 'paranoia_examples.rb',
           'spec/support/shared_examples/paranoia_examples.rb'
+
+
+# enumerize
+append_to_file 'config/locales/en.yml' do
+  <<-EOS.strip_heredoc.indent(2)
+    enumerize:
+  EOS
+end
+
+append_to_file 'config/locales/zh-CN.yml' do
+  <<-EOS.strip_heredoc.indent(2)
+    enumerize:
+  EOS
+end
 
 git add: "."
 git commit: %Q{ -m 'common:db' }
