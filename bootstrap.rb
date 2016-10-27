@@ -16,7 +16,8 @@ after_bundle do
   apply  File.expand_path("../lib/common/app.rb", __FILE__)
   apply  File.expand_path("../lib/common/i18n.rb", __FILE__)
   apply  File.expand_path("../lib/common/db.rb", __FILE__)
-  
+  apply  File.expand_path("../lib/common/whenever.rb", __FILE__)
+
   if options[:api]
     puts "api template processing..."
   else
