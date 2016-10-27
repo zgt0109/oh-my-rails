@@ -20,6 +20,8 @@ after_bundle do
 
   if options[:api]
     puts "api template processing..."
+    apply  File.expand_path("../lib/api/cors.rb", __FILE__)
+    apply  File.expand_path("../lib/api/json.rb", __FILE__)
   else
     puts "web template processing..."
     apply  File.expand_path("../lib/web/app.rb", __FILE__)
