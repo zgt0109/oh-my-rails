@@ -43,7 +43,7 @@ end
 
 # stage: production
 prepend_to_file 'config/deploy/production.rb' do
-"server '#{domain}', user: 'deploy', roles: %w{app db web}"
+"server '#{domain}', user: '#{ask('user:')}', roles: %w{app db web}"
 end
 
 git add: "."
