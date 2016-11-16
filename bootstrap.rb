@@ -10,22 +10,24 @@ after_bundle do
   git add: "."
   git commit: %Q{ -m 'Initial commit' }
 
-  puts "common template processing..."
-  apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
-  apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
-  apply  File.expand_path("../lib/common/app.rb", __FILE__)
-  apply  File.expand_path("../lib/common/i18n.rb", __FILE__)
-  apply  File.expand_path("../lib/common/db.rb", __FILE__)
-  apply  File.expand_path("../lib/common/whenever.rb", __FILE__)
-
-  if options[:api]
-    puts "api template processing..."
-    apply  File.expand_path("../lib/api/cors.rb", __FILE__)
-    apply  File.expand_path("../lib/api/json.rb", __FILE__)
-  else
-    puts "web template processing..."
-    apply  File.expand_path("../lib/web/app.rb", __FILE__)
-    apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
-    apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
-  end
+  apply  File.expand_path("../lib/common/docker.rb", __FILE__)
+  #
+  # puts "common template processing..."
+  # apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/app.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/i18n.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/db.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/whenever.rb", __FILE__)
+  #
+  # if options[:api]
+  #   puts "api template processing..."
+  #   apply  File.expand_path("../lib/api/cors.rb", __FILE__)
+  #   apply  File.expand_path("../lib/api/json.rb", __FILE__)
+  # else
+  #   puts "web template processing..."
+  #   apply  File.expand_path("../lib/web/app.rb", __FILE__)
+  #   apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
+  #   apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
+  # end
 end
