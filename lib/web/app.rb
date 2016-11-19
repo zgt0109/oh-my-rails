@@ -1,4 +1,5 @@
 gem 'slim-rails', '~> 3.1'
+uncomment_lines 'therubyracer' 'Gemfile'
 
 run_bundle
 

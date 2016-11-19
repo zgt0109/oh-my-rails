@@ -11,11 +11,11 @@ RUN git config --global user.name "$name"       && \
 RUN mkdir /oh-my-rails
 WORKDIR /oh-my-rails
 
-ADD Gemfile* /oh-my-rails/
+COPY Gemfile* /oh-my-rails
 
 RUN bundle config \
         mirror.https://rubygems.org \
         https://gems.ruby-china.org \
-          && bundle
+        && bundle
 
 COPY . /oh-my-rails

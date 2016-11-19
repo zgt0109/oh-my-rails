@@ -7,7 +7,7 @@ run_bundle
 
 # initialize
 run "bundle exec spring stop"
-run "cap install"
+run "bundle exec cap install"
 
 #　capistrano
 uncomment_lines 'Capfile', /require.*bundle/
