@@ -13,7 +13,7 @@ after_bundle do
   puts "common template processing..."
   apply  File.expand_path("../lib/common/docker.rb", __FILE__)
   # apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
-  # apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
+  apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
   # apply  File.expand_path("../lib/common/app.rb", __FILE__)
   # apply  File.expand_path("../lib/common/i18n.rb", __FILE__)
   # apply  File.expand_path("../lib/common/db.rb", __FILE__)
@@ -26,7 +26,7 @@ after_bundle do
   else
     puts "web template processing..."
     apply  File.expand_path("../lib/web/app.rb", __FILE__)
-    # apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
-    # apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
+    apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
+    apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
   end
 end
