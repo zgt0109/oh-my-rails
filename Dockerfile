@@ -8,14 +8,13 @@ RUN git config --global user.name "$name"       && \
     git config --global user.email "$email"     && \
     git config --global push.default simple
 
-RUN mkdir /oh-my-rails
-WORKDIR /oh-my-rails
-
-COPY Gemfile* /oh-my-rails/
 
 RUN bundle config \
         mirror.https://rubygems.org \
-        https://gems.ruby-china.org \
-        && bundle
+        https://gems.ruby-china.org
+
+RUN mkdir /oh-my-rails
+WORKDIR /oh-my-rails
+
 
 COPY . /oh-my-rails/
