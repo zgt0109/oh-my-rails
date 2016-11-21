@@ -25,7 +25,7 @@ after_bundle do
     # apply  File.expand_path("../lib/api/json.rb", __FILE__)
   else
     puts "web template processing..."
-    # apply  File.expand_path("../lib/web/app.rb", __FILE__)
+    apply  File.expand_path("../lib/web/app.rb", __FILE__)
     # apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
     # apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
   end
