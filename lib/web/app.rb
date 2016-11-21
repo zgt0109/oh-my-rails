@@ -1,20 +1,17 @@
-gem 'slim-rails', '~> 3.1'
+# gem 'slim-rails', '~> 3.1'
 uncomment_lines 'therubyracer' 'Gemfile'
 
 run_bundle
 
 # App
-application 'config.generators.assets = false'
-application 'config.generators.helper = false'
+# application 'config.generators.assets = false'
+# application 'config.generators.helper = false'
 
 # Capistrano
-uncomment_lines 'Capfile', /require.*assets/
+# uncomment_lines 'Capfile', /require.*assets/
 
 # Slim
-application 'Slim::Engine.options[:pretty] = true'
-
-
-
+# application 'Slim::Engine.options[:pretty] = true'
 
 git add: "."
 git commit: %Q{ -m 'web:app' }

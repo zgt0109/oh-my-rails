@@ -8,7 +8,11 @@
 * [集成Gem列表](https://github.com/guxiaobai/developer-101/blob/master/ruby/gems.md)
 
 
+### Docker
 
+	docker volume create --name gems
+	docker build oh-my-rails .
+	docker run -it --rm -v gems:/usr/local/bundle oh-my-rails bash
 
 ### 使用教程
 **生成项目**
