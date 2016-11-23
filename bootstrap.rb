@@ -11,7 +11,7 @@ after_bundle do
   git commit: %Q{ -m 'Initial commit' }
 
   puts "common template processing..."
-  apply  File.expand_path("../lib/common/docker.rb", __FILE__)
+  # apply  File.expand_path("../lib/common/docker.rb", __FILE__)
   # apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
   apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
   # apply  File.expand_path("../lib/common/app.rb", __FILE__)
@@ -25,8 +25,8 @@ after_bundle do
     # apply  File.expand_path("../lib/api/json.rb", __FILE__)
   else
     puts "web template processing..."
-    apply  File.expand_path("../lib/web/app.rb", __FILE__)
-    apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
-    apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
+    # apply  File.expand_path("../lib/web/app.rb", __FILE__)
+    # apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
+    # apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
   end
 end

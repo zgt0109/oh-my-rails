@@ -15,12 +15,13 @@ RUN git config --global user.name "$name"       && \
     git config --global push.default simple
 
 
-RUN bundle config \
-        mirror.https://rubygems.org \
-        https://gems.ruby-china.org
+RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 
-RUN mkdir /oh-my-rails
-WORKDIR /oh-my-rails
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
+COPY Gemfile /usr/src/app/
+COPY Gemfile.lock /usr/src/app/
+RUN bundle install
 
-COPY . /oh-my-rails/
+COPY . /usr/src/app
