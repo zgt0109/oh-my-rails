@@ -20,8 +20,11 @@ RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+ENV BUNDLE_GEMFILE=/usr/src/app/Gemfile
+
 COPY Gemfile /usr/src/app/
 COPY Gemfile.lock /usr/src/app/
 RUN bundle install
+
 
 COPY . /usr/src/app

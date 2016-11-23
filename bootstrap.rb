@@ -6,12 +6,14 @@ def source_paths
 end
 
 after_bundle do
+
   git :init
   git add: "."
   git commit: %Q{ -m 'Initial commit' }
 
+
   puts "common template processing..."
-  # apply  File.expand_path("../lib/common/docker.rb", __FILE__)
+  # apply  File.expabundnd_path("../lib/common/docker.rb", __FILE__)
   # apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
   apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
   # apply  File.expand_path("../lib/common/app.rb", __FILE__)
