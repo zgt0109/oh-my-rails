@@ -1,13 +1,16 @@
 version: '2'
 volumes:
+  postgres:
+  redis:
   gems:
   logs:
-  redis:
 services:
   db:
-    image: postgres
+    image: postgres:alpine
+    volumes:
+      - postgres:/var/lib/postgresql/data
   redis:
-    image: redis
+    image: redis:alpine
     volumes:
       - reids:/var/lib/redis
   web:
