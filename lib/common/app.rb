@@ -14,7 +14,7 @@ copy_file 'Procfile'
 
 # annotate
 run "bundle exec spring stop"
-generate "annotate:install"
+copy_file 'auto_annotate_models.rake', 'lib/tasks/auto_annotate_models.rake'
 
 # seedbank
 create_file 'db/seeds/development/.keep'

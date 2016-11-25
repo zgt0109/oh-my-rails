@@ -20,7 +20,10 @@ run_bundle
 
 # rspec
 run "bundle exec spring stop"
-generate 'rspec:install'
+copy_file '.rspec', '.rspec'
+copy_file 'rails_helper.rb', 'spec/rails_helper.rb'
+copy_file 'spec_helper.rb', 'spec/spec_helper.rb'
+
 uncomment_lines 'spec/rails_helper.rb', /support.*require/
 
 inject_into_class 'config/application.rb', 'Application' do

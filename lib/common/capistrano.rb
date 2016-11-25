@@ -7,7 +7,10 @@ run_bundle
 
 # initialize
 run "bundle exec spring stop"
-run "bundle exec cap install"
+copy_file 'Capfile', 'Capfile'
+copy_file 'deploy.rb', 'config/deploy.rb'
+copy_file 'production.rb', 'config/deploy/production.rb'
+copy_file 'staging.rb', 'config/deploy/staging.rb'
 
 #　capistrano
 uncomment_lines 'Capfile', /require.*bundle/
