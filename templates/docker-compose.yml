@@ -12,7 +12,7 @@ services:
   redis:
     image: redis:alpine
     volumes:
-      - reids:/var/lib/redis
+      - redis:/var/lib/redis
   web:
     build: .
     command: bundle exec rails s -p 3000 -b 0.0.0.0

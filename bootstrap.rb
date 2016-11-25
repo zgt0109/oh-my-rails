@@ -8,13 +8,17 @@ end
 # fix not use version manage
 ENV['BUNDLE_GEMFILE'] = "#{destination_root}/Gemfile"
 
-# after_bundle do
-#   git :init
-#   git add: "."
-#   git commit: %Q{ -m 'Initial commit' }
-#
-#   puts "common template processing..."
-#   apply  File.expand_path("../lib/common/docker.rb", __FILE__)
+after_bundle do
+  git config: %Q{ --global user.name  "#{ask('name: ')}" }
+  git config: %Q{ --global user.email  "#{ask('email: ')}" }
+  git config: %Q{--global push.default simple}
+
+  git :init
+  git add: "."
+  git commit: %Q{ -m 'Initial commit' }
+
+  puts "common template processing..."
+  apply  File.expand_path("../lib/common/docker.rb", __FILE__)
 #   apply  File.expand_path("../lib/common/rspec.rb", __FILE__)
 #   apply  File.expand_path("../lib/common/capistrano.rb", __FILE__)
 #   apply  File.expand_path("../lib/common/app.rb", __FILE__)
@@ -32,4 +36,4 @@ ENV['BUNDLE_GEMFILE'] = "#{destination_root}/Gemfile"
 #     apply  File.expand_path("../lib/web/livereload.rb", __FILE__)
 #     apply  File.expand_path("../lib/web/semantic-ui.rb", __FILE__)
 #   end
-# end
+end
