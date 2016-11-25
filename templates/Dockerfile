@@ -1,21 +1,17 @@
-FROM ruby:alpine
+FROM oh-my-rails
 MAINTAINER guxiaobai <sikuan.gu@gmail.com>
 
-RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
-RUN apt-get update && apt-get install -y --no-install-recommends \
-            nodejs \
-            && rm -rf /var/lib/apt/lists/*
-
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-ENV BUNDLE_GEMFILE=/usr/src/app/Gemfile LANG=C.UTF-8
-
-COPY Gemfile /usr/src/app/
-COPY Gemfile.lock /usr/src/app/
-
-ONBUILD RUN bundle install
-
-COPY . /usr/src/app
+# RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+# RUN apk --no-cache add build-base nodejs
+#
+# RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
+#
+# RUN mkdir -p /usr/src/app
+# WORKDIR /usr/src/app
+#
+# COPY Gemfile /usr/src/app/
+# COPY Gemfile.lock /usr/src/app/
+#
+# ONBUILD RUN bundle install
+#
+# COPY . /usr/src/app

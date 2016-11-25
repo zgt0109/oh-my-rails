@@ -2,7 +2,13 @@ FROM ruby:2.3-alpine
 MAINTAINER guxiaobai <sikuan.gu@gmail.com>
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-RUN apk --no-cache add git
+RUN apk --no-cache add \
+  build-base \
+  nodejs \
+  git \
+  postgresql-dev \
+  mysql-dev \
+  sqlite-dev \
 
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org
 
