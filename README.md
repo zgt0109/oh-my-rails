@@ -10,9 +10,13 @@
 
 ### Docker
 
-	docker volume create --name gems
 	docker build oh-my-rails .
-	docker run -it --rm -v gems:/usr/local/bundle oh-my-rails bash
+	docker volume create --name gems
+	docker run -it --rm -v gems:/usr/local/bundle \
+							-v /Users/lemon/Documents:/app oh-my-rails sh
+	
+	bundle install						
+	rails new demo -T -d postgresql -m /usr/src/app/bootstrap.rb
 
 ### 使用教程
 **生成项目**

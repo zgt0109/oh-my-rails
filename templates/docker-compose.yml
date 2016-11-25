@@ -1,7 +1,15 @@
 version: '2'
 volumes:
   gems:
+  logs:
+  redis:
 services:
+  db:
+    image: postgres
+  redis:
+    image: redis
+    volumes:
+      - reids:/var/lib/redis
   web:
     build: .
     command: bundle exec rails s -p 3000 -b 0.0.0.0
