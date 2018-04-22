@@ -15,11 +15,9 @@ apt-get update && apt-get install -y  --no-install-recommends \
       build-essential \
       language-pack-zh-hans \
       git-core \
-      ruby2.3 ruby2.3-dev\
+      ruby2.5 ruby2.5-dev\
       mysql-server mysql-client libmysqlclient-dev \
-      postgresql postgresql-contrib libpq-dev \
       redis-server redis-tools \
-      memcached \
       nodejs nodejs-dev \
       nginx
 

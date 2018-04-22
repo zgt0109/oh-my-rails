@@ -4,17 +4,9 @@
 GEM_SOURCES_CHINA=https://gems.ruby-china.org/
 GEM_SOURCES_ORIGIN=https://rubygems.org/
 
-# rsa_pub_guxiaobai="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiAP0QTzqGB4Mqhq+nyx\
-# 00grcmLNqDV8ttZnjd/D3yC1Km9speqrWejSOQlpOHfCIARUIiAKpfwjYlFHT1nZ9+5czRKqNljaT\
-# 5OKlF+RYyrrlxi9NcmjCzf0h5soAXcCpe1xUSDFaZjSvcTTJFXZyyo9GWRaexAan9jlpH4iZd7ty8\
-# rsQX/vHFwujSnyrLbGyOiG7eldVZt7+HoCdJ12SsC2boTFlwy1hYlk0t25Kx3dU9BCupuVQ/nbavf\
-# zZpbSx0vqCMqekqj1/r/zlVLRDrCzRau3bKInmsHT3JlMRjmLXC+HvxB2+1LKMINcbCKaWJ/DYD0W\
-# 81EjIuPM6thTUT sikuan.gu@gmail.com"
+secret_key="7bfb99d9751672d3307e0f1214f82aa2ab96bc15f1a9b68c13466b1cd333a42ad0ddc481e30b6b60b772a392c19e2c45572526a1a0df7fac4a3f2105037bc10c"
 
-secret_key="c6cf1a911977bd40ffef2a3cee6d062703e0322ef4885534694a50f9c704e2aefa\
-8af3c4ed4d4a1fe5900101895da6b54973c7f8490821ded451b28a5305e526"
-
-read -p "Public Key? " rsa_pub_guxiaobai
+read -p "Public Key? " rsa_pub_zgt
 read -p "Deploy User Name? " user_name
 read -p "Application Name? " app_name
 
@@ -31,7 +23,7 @@ bundle config mirror.${GEM_SOURCES_ORIGIN%/} ${GEM_SOURCES_CHINA%/}
 
 # SSH
 mkdir ~/.ssh
-echo ${rsa_pub_guxiaobai} >> ~/.ssh/authorized_keys
+echo ${rsa_pub_zgt} >> ~/.ssh/authorized_keys
 sed  -i "1i # Rails Applicaton Configure\n" ~/.bashrc
 sed  -i "1a export RAILS_ENV=production" ~/.bashrc
 sed  -i "1a export SECRET_KEY_BASE=${secret_key}" ~/.bashrc
